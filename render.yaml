@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lc100-auctions-api
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./auction_scraper/Dockerfile
+    rootDir: .
+    healthCheckPath: /health
+    autoDeploy: true
+
