@@ -1320,14 +1320,28 @@ def parse_listing(
     # Outcome signals on BaT usually look like: "Sold for $X" or "Bid to $X".
     sold_price = None
     highest_bid = None
+    current_bid = None
     reserve_met = None
     sale_status = "unknown"
     hint = card_hint or {}
 
-    outcome_text = " ".join(x for x in [title, meta_desc, page_text] if x)
+    # Prefer title + meta description for outcome parsing; full page text can include
+    # unrelated sold results from other listings.
+    outcome_text = " ".join(x for x in [title, meta_desc] if x)
+    full_text = " ".join(x for x in [outcome_text, page_text] if x)
     sold_match = re.search(r"Sold\s+for\s+\$[\d,]+", outcome_text, flags=re.I)
     bid_to_match = re.search(r"Bid\s+to\s+\$[\d,]+", outcome_text, flags=re.I)
     withdrawn_match = re.search(r"Withdrawn", outcome_text, flags=re.I)
+    live_match = re.search(
+        r"\b(live auction|current bid|auction ends|time left|bid:\s*\$[\d,]+)\b",
+        full_text,
+        flags=re.I,
+    )
+    current_bid_match = re.search(
+        r"(?:Current\s+Bid|Bid)\s*:?\s*\$[\d,]+",
+        full_text,
+        flags=re.I,
+    )
 
     if sold_match:
         sold_price = parse_money(sold_match.group(0))
@@ -1340,6 +1354,11 @@ def parse_listing(
     elif withdrawn_match:
         sale_status = "withdrawn"
         reserve_met = False
+    elif live_match:
+        sale_status = "live"
+        reserve_met = None
+        if current_bid_match:
+            current_bid = parse_money(current_bid_match.group(0))
 
     bids_count = None
     m_bids = re.search(r"\b([0-9]{1,4})\s+bids?\b", page_text, flags=re.I)
@@ -1380,14 +1399,8 @@ def parse_listing(
             if parsed:
                 date_candidates.append((score, parsed))
 
-        if sold_price is None:
-            offers = node.get("offers")
-            if isinstance(offers, dict) and isinstance(offers.get("price"), (int, float, str)):
-                maybe = to_int(str(offers.get("price")))
-                if maybe:
-                    sold_price = maybe
-                    sale_status = "sold"
-                    reserve_met = True
+        # Do not infer sold outcome from generic offers.price: for active listings this
+        # is often just current bid.
 
     if date_candidates:
         # Prefer listing-relevant candidates and then earliest plausible date to avoid
@@ -1524,6 +1537,9 @@ def parse_listing(
     if not end_dt and isinstance(hint.get("auction_end_datetime_utc"), str):
         end_dt = parse_datetime(str(hint.get("auction_end_datetime_utc")))
 
+    if sale_status != "sold":
+        sold_price = None
+
     make = "Toyota" if re.search(r"\bToyota\b", title, flags=re.I) else ""
     model = "Land Cruiser" if re.search(r"\bLand\s+Cruiser\b", title, flags=re.I) else ""
 
@@ -1540,6 +1556,7 @@ def parse_listing(
         "reserve_met": reserve_met,
         "sold_price_usd": sold_price,
         "highest_bid_usd": highest_bid,
+        "current_bid_usd": current_bid,
         "auction_end_datetime_utc": end_dt,
         "number_of_bids": bids_count,
         "scraped_at_utc": datetime.now(timezone.utc).isoformat(),

@@ -159,6 +159,7 @@ def predict_from_url(req: PredictRequest) -> PredictResponse:
             "location": parsed.get("location"),
             "number_of_bids": parsed.get("number_of_bids"),
             "sale_status": parsed.get("sale_status"),
+            "current_bid_usd": parsed.get("current_bid_usd"),
             "sold_price_usd": parsed.get("sold_price_usd"),
             "highest_bid_usd": parsed.get("highest_bid_usd"),
             "auction_end_datetime_utc": parsed.get("auction_end_datetime_utc"),
