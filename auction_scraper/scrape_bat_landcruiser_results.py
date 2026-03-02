@@ -1281,6 +1281,14 @@ def parse_listing(
 ) -> dict[str, Any]:
     soup = BeautifulSoup(html, "html.parser")
     page_text = soup.get_text(" ", strip=True)
+    article_text = ""
+    article = soup.find("article")
+    if article:
+        article_text = article.get_text(" ", strip=True)
+    if not article_text:
+        main = soup.find("main")
+        if main:
+            article_text = main.get_text(" ", strip=True)
     meta_desc = ""
     meta_desc_tag = soup.find("meta", attrs={"property": "og:description"})
     if not meta_desc_tag:
@@ -1325,21 +1333,21 @@ def parse_listing(
     sale_status = "unknown"
     hint = card_hint or {}
 
-    # Prefer title + meta description for outcome parsing; full page text can include
-    # unrelated sold results from other listings.
-    outcome_text = " ".join(x for x in [title, meta_desc] if x)
+    # Prefer title + meta description + article/main content for outcome parsing.
+    # This avoids depending on global page text that can include unrelated listings.
+    outcome_text = " ".join(x for x in [title, meta_desc, article_text] if x)
     full_text = " ".join(x for x in [outcome_text, page_text] if x)
-    sold_match = re.search(r"Sold\s+for\s+\$[\d,]+", outcome_text, flags=re.I)
-    bid_to_match = re.search(r"Bid\s+to\s+\$[\d,]+", outcome_text, flags=re.I)
+    sold_match = re.search(r"Sold\s+for\s+(?:USD\s*)?\$[\d,]+", outcome_text, flags=re.I)
+    bid_to_match = re.search(r"Bid\s+to\s+(?:USD\s*)?\$[\d,]+", outcome_text, flags=re.I)
     withdrawn_match = re.search(r"Withdrawn", outcome_text, flags=re.I)
     live_match = re.search(
         r"\b(live auction|current bid|auction ends|time left|bid:\s*\$[\d,]+)\b",
-        full_text,
+        outcome_text,
         flags=re.I,
     )
     current_bid_match = re.search(
-        r"(?:Current\s+Bid|Bid)\s*:?\s*\$[\d,]+",
-        full_text,
+        r"(?:Current\s+Bid|Bid)\s*:?\s*(?:USD\s*)?\$[\d,]+",
+        outcome_text,
         flags=re.I,
     )
 
@@ -1354,11 +1362,14 @@ def parse_listing(
     elif withdrawn_match:
         sale_status = "withdrawn"
         reserve_met = False
-    elif live_match:
+    elif live_match and not sold_match and not bid_to_match:
         sale_status = "live"
         reserve_met = None
         if current_bid_match:
             current_bid = parse_money(current_bid_match.group(0))
+    elif current_bid_match and not sold_match and not bid_to_match:
+        sale_status = "live"
+        current_bid = parse_money(current_bid_match.group(0))
 
     bids_count = None
     m_bids = re.search(r"\b([0-9]{1,4})\s+bids?\b", page_text, flags=re.I)
