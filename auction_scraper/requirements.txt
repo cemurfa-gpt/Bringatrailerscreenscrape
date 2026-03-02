@@ -1,4 +1,14 @@
 requests>=2.32.0
 beautifulsoup4>=4.12.0
+python-dateutil>=2.9.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+matplotlib>=3.9.0
+joblib>=1.4.0
+xgboost>=2.1.0
+lightgbm>=4.5.0
 fastapi>=0.115.0
 uvicorn>=0.30.0
+streamlit>=1.40.0
+shap>=0.46.0
+playwright>=1.49.0

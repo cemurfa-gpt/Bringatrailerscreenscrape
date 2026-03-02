@@ -1,0 +1,47 @@
+/Users/cemurfalioglu/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/1z/fgxp9h7s5t50v8fyt7ym33fh0000gn/T/matplotlib-w1cu311f because there was an issue with the default path (/Users/cemurfalioglu/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/sklearn/impute/_base.py:635: UserWarning: Skipping features without any observed values: ['location']. At least one non-missing value is needed for imputation with strategy='most_frequent'.
+  warnings.warn(

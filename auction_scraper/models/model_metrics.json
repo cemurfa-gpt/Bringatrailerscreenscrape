@@ -1,0 +1,89 @@
+{
+  "dataset_rows_used": 327,
+  "split_strategy": "chronological",
+  "train_rows": 262,
+  "test_rows": 65,
+  "target": "sold_price_usd",
+  "selected_model": "random_forest",
+  "feature_columns_used": [
+    "year",
+    "mileage",
+    "number_of_bids",
+    "auction_month",
+    "auction_quarter",
+    "auction_year",
+    "sale_status"
+  ],
+  "candidate_models_cv": {
+    "random_forest": {
+      "folds": 5,
+      "mae_mean": 10099.21275136347,
+      "mae_std": 809.4171566431929,
+      "mae_per_fold": [
+        9877.81309798651,
+        11145.376257538841,
+        10028.235720844656,
+        10682.311463522272,
+        8762.327216925069
+      ]
+    },
+    "gradient_boosting": {
+      "folds": 5,
+      "mae_mean": 11053.192158144422,
+      "mae_std": 1644.00414508338,
+      "mae_per_fold": [
+        11287.75476457449,
+        13000.375453342733,
+        9062.640487692686,
+        12643.808577975959,
+        9271.38150713625
+      ]
+    },
+    "xgboost": {
+      "folds": 5,
+      "mae_mean": 11098.580053143169,
+      "mae_std": 1871.9313789570315,
+      "mae_per_fold": [
+        10100.918263989826,
+        13156.587413699128,
+        10126.01741914971,
+        13435.883777707122,
+        8673.493391170057
+      ]
+    },
+    "lightgbm": {
+      "folds": 5,
+      "mae_mean": 12927.601501988971,
+      "mae_std": 3734.8008335539776,
+      "mae_per_fold": [
+        19977.341309650477,
+        13341.997998792584,
+        10754.485181257038,
+        11041.449706800178,
+        9522.73331344457
+      ]
+    }
+  },
+  "regression": {
+    "mae_usd": 10515.711126812846,
+    "rmse_usd": 14244.26357832042,
+    "mape": 0.29175660341735227,
+    "r2": 0.8634762103077522
+  },
+  "prediction_interval": {
+    "method": "split_conformal",
+    "alpha": 0.1,
+    "nominal_coverage": 0.9,
+    "empirical_coverage": 0.8461538461538461,
+    "avg_interval_width_usd": 38776.730945873016,
+    "q_hat_usd": 19388.365472936504,
+    "calibration_rows": 52
+  },
+  "classification_proxy_high_value": {
+    "threshold_median_price_usd": 29125.0,
+    "accuracy": 0.8307692307692308,
+    "precision": 0.9333333333333333,
+    "recall": 0.7567567567567568,
+    "roc_auc": 0.9015444015444016
+  }
+}

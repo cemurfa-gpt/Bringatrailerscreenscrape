@@ -1,2 +1,1 @@
-"""Land Cruiser 100-series scraper package."""
-
+"""BaT Toyota Land Cruiser scraping and pricing package."""

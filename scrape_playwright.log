@@ -1,0 +1,22 @@
+/Users/cemurfalioglu/Desktop/Codex Files CU/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Discovery method used: playwright
+Playwright results-search rows extracted: 319
+Playwright series rows extracted: 24
+Playwright combined unique rows: 320
+Discovery method used: playwright
+Playwright results-search rows extracted: 488
+Playwright series rows extracted: 24
+Playwright combined unique rows: 489
+Raw rows with end datetime: 490
+Raw unique end datetimes: 450
+Raw min end datetime: 2020-02-27T00:00:00+00:00
+Raw max end datetime: 2026-03-01T00:00:00+00:00
+Raw rows parsed: 490
+Rows saved after date filter: 376
+Rows with end datetime: 376
+Unique end datetimes: 336
+Min end datetime: 2023-01-13T00:00:00+00:00
+Max end datetime: 2026-03-01T00:00:00+00:00
+JSON: auction_scraper/data/bat_landcruiser_results_2023_current.json
+CSV: auction_scraper/data/bat_landcruiser_results_2023_current.csv
